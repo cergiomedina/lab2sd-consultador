@@ -44,8 +44,12 @@ public class Consultador {
             if(cursor.count()==0){
                 System.out.println("No se encuentra resultado");
             }else{
-                DBObject respuesta = (DBObject) cursor.one().get("documentos");
-                System.out.println(respuesta);
+                int cantidad_respuestas = cursor.count();
+                BasicDBObject respuesta = (BasicDBObject) cursor.one().get("documentos");
+                for (int i = 0; i < respuesta.size(); i++) {
+                    System.out.println("http://wikipedia.com/wiki/"+respuesta.get("Documento-"+Integer.toString(i)));
+                }
+                
             }
         }
     }
