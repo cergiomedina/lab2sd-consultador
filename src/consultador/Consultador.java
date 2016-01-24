@@ -47,7 +47,8 @@ public class Consultador {
                 int cantidad_respuestas = cursor.count();
                 BasicDBObject respuesta = (BasicDBObject) cursor.one().get("documentos");
                 for (int i = 0; i < respuesta.size(); i++) {
-                    System.out.println("http://es.wikipedia.org/wiki/"+respuesta.get("Documento-"+Integer.toString(i)));
+                    
+                    System.out.println(respuesta.get("Documento-"+Integer.toString(i)));
                 }
                 
             }
